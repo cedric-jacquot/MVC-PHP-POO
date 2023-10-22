@@ -17,8 +17,10 @@ class Database extends PDO
      */
     private function __construct()
     {
-        // parse le fichier config.ini avec les infos de connexion
-        $config = parse_ini_file(__DIR__ . '/../config.ini');
+        // récupère la config
+        $config = Config::getConfig();
+
+        var_dump($config);
 
         // DSN de connexion
         $dsn = 'mysql:dbname=' . $config['DB_USERNAME'] . ';host=' . $config['DB_HOST'];
